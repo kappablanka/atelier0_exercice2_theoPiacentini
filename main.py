@@ -26,11 +26,12 @@ def main():
 
     elif choix_type == "COLISSIMO ECO OUTRE-MER":
         prix = verif_prix(choix_poids, TARIF_COLISSIMO_OUTRE_MER)
+
     else:
         prix = verif_prix(choix_poids, TARIF_COLISSIMO_CECOGRAMME)
-
-    if prix > 0:
-        print(f"le prix est :{prix} euros")
+    print(prix)
+    if prix >= 0:
+        print(f"le prix est : {prix} euros")
     else:
         print("Le colis est trop grands")
 
@@ -73,7 +74,7 @@ def choix_poids_et_verif() -> float:
     return choix_poids
 
 
-def verif_prix(poids: float, dico_prix) -> float:
+def verif_prix(poids: float, dico_prix: dict) -> float:
     """
     Vérifie le prix d'un colis en fonction de son poids et de son prix
     :param poids: flo
